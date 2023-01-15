@@ -23,8 +23,8 @@
 </div>
 
 <h2>🖼️ Demonstração da aplicação</h2>
-<img margin-bottom="20px" src="assets/readme1.png">
-<img margin-bottom="20px" src="assets/readme2.png">
+<img margin-bottom="20px" src="assets/readme1.PNG">
+<img margin-bottom="20px" src="assets/readme2.PNG">
 <h4  style="display: inline_block">Visualização do site :</h4><a style="display: inline_block" target="blank" href="https://acessibilidade-front-end.netlify.app/">Preview no Netlify</a>
 
 <h2>🧑🏻‍ Autor</h2>

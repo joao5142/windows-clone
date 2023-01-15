@@ -1,3 +1,6 @@
+import backgrounds from "./backgrounds.js";
+import taskbar from "./taskbar.js";
+
 const body = document.body;
 const footer = document.querySelector(".footer");
 const container = document.querySelector(".container");
@@ -83,6 +86,10 @@ function handleSelectionMove(e) {
   selection.style.width = widthX + "px";
   selection.style.height = heightY + "px";
 }
+
+//init import's methods
+backgrounds.initTimeout();
+taskbar.getDate();
 
 container.addEventListener("click", handleClickContainer);
 footer.addEventListener("click", handleClickFooter);

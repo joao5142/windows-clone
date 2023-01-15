@@ -19,7 +19,24 @@ class Taskbar extends HTMLElement {
             </ul>
           </nav>
           <nav class="footer__secondary">
-
+              <ul>
+                <li><img src="/assets/icons/arrow-top.png"/> </li>
+                <li><img src="/assets/icons/battery.png"/> </li>
+                <li><img src="/assets/icons/wifi.png"/> </li>
+                <li><img src="/assets/icons/volume.png"/></li>
+                <li class="footer__input-method">
+                  <span>ENG</span>
+                  <span>PTB2</span>
+                </li>
+                <li class="footer__date"> 
+                   <span id="date-hour">16:36</span>
+                   <span id="date-day">domingo</span> 
+                   <span id="date">15/01/2023</span>
+                </li>
+                <li><img src="/assets/icons/notification.png"/></li>
+            
+               
+              </ul>
           </nav>
         </footer>
      

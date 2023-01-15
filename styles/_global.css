@@ -1,5 +1,5 @@
 body {
-  background: url("../assets/backgrounds/background5.webp");
+  background: url("../assets/backgrounds/background1.webp");
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -11,6 +11,7 @@ body {
   position: relative;
 
   overflow: hidden;
+  transition: all 0.7s ease-in-out;
 }
 
 main {

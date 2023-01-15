@@ -11,9 +11,7 @@
 .footer > * {
   width: 100vw;
 }
-.footer__secondary {
-  position: absolute;
-}
+
 .footer__principal {
   display: flex;
   align-items: center;
@@ -65,4 +63,33 @@
 
 .footer__principal img {
   max-height: 30px;
+}
+
+.footer__secondary {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.footer__secondary ul {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  color: #4b494c;
+}
+.footer__secondary ul:nth-last-child(1) {
+  margin-right: 20px;
+}
+
+.footer__secondary {
+  position: absolute;
+  height: 100%;
+  font-size: 0.75rem;
+}
+.footer__input-method,
+.footer__date {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 3px;
 }

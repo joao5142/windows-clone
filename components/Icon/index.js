@@ -12,7 +12,6 @@ class Icon extends HTMLElement {
       },
       {}
     );
-    console.log(props);
 
     let element = this.createElement(props);
 
@@ -26,9 +25,6 @@ class Icon extends HTMLElement {
 
     div.setAttribute("draggable", "true");
     div.classList.add("icon");
-    div.style.position = "absolute";
-    div.style.top = `${props.y}%`;
-    div.style.left = `${props.x}%`;
 
     p.innerText = props.text;
     p.classList.add("icon__text");
@@ -39,6 +35,11 @@ class Icon extends HTMLElement {
 
     div.appendChild(image);
     div.appendChild(p);
+
+    this.style.position = "absolute";
+    this.style.top = `${props.y}%`;
+    this.style.left = `${props.x}%`;
+
     this.handleClick(div);
     return div;
   }

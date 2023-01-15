@@ -58,7 +58,6 @@ function setFormatedStringToCompleteDateEl(day, month, year) {
   if (numberLength(day) <= 1) {
     dayString = "0" + dayString;
   }
-  console.log(month);
   completDateEl.innerText = dayString + "/" + monthString + "/" + year;
 }
 function numberLength(number) {

@@ -121,7 +121,3 @@ body.addEventListener("contextmenu", (e) => {
   menuList.style.top = `${e.pageY}px`;
   menuList.style.left = `${e.pageX}px`;
 });
-
-container.addEventListener("contextmenu", (e) => {
-  console.dir(e);
-});

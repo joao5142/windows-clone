@@ -1,0 +1,43 @@
+body {
+  background: url("../assets/backgrounds/background5.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 0.9rem;
+
+  height: 100vh;
+  position: relative;
+
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 50px);
+}
+
+.container {
+  height: 90%;
+  width: 98%;
+  position: relative;
+}
+
+.selection {
+  position: absolute;
+
+  width: 0%;
+  height: 0%;
+
+  background: rgba(76, 168, 255, 0.281);
+
+  display: none;
+  transform: translateX(-100px);
+}
+
+.selection.active {
+  display: block;
+}

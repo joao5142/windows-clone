@@ -107,7 +107,7 @@
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
   .footer__principal {
     justify-content: center;
     padding-left: 0px;

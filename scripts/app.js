@@ -13,6 +13,7 @@ let initialPositionClickX = null;
 let initialPositionClickY = null;
 
 let selectionActive = false;
+let isClicked = false;
 
 function handleClickContainer(e) {
   if (e.target !== e.currentTarget) return;
@@ -97,6 +98,10 @@ footer.addEventListener("click", handleClickFooter);
 body.addEventListener("mousedown", (e) => {
   let selectionSpaceAllowed = e.target == main || e.target == container;
 
+  if (isClicked) resetSelection();
+
+  isClicked = true;
+
   if (selectionSpaceAllowed) setInitialClickPositionSelection(e);
 
   if (e.target !== e.currentTarget) return;
@@ -105,6 +110,7 @@ body.addEventListener("mousedown", (e) => {
 
 body.addEventListener("mouseup", () => {
   resetSelection();
+  isClicked = false;
 });
 
 body.addEventListener("mousemove", (e) => {
@@ -114,7 +120,9 @@ body.addEventListener("mousemove", (e) => {
 });
 
 body.addEventListener("contextmenu", (e) => {
+  if (isClicked) resetSelection();
   e.preventDefault();
+  console.log("context");
 
   addActiveClassToMenuList();
 

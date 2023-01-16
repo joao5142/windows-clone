@@ -96,11 +96,11 @@ container.addEventListener("click", handleClickContainer);
 footer.addEventListener("click", handleClickFooter);
 
 body.addEventListener("mousedown", (e) => {
-  let selectionSpaceAllowed = e.target == main || e.target == container;
-
   if (isClicked) resetSelection();
 
   isClicked = true;
+
+  let selectionSpaceAllowed = e.target == main || e.target == container;
 
   if (selectionSpaceAllowed) setInitialClickPositionSelection(e);
 
@@ -122,7 +122,6 @@ body.addEventListener("mousemove", (e) => {
 body.addEventListener("contextmenu", (e) => {
   if (isClicked) resetSelection();
   e.preventDefault();
-  console.log("context");
 
   addActiveClassToMenuList();
 

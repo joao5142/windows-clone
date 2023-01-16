@@ -10,7 +10,7 @@
 <h3>Rodando a Aplicação</h3>
 <ul>
 	<li>Clone esse repositório(git clone)</li>
-	<li>Abra o arquivo index.html</li>
+	<li>É necessario que o projeto esteja rodando em um servidor de desenvolvimento,recomendo o live server.</li>
 </ul>
 
 <h2>🤖 Tecnologias Utilizadas</h2>

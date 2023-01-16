@@ -74,7 +74,7 @@
 .footer__secondary ul {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
 
   color: #4b494c;
 }

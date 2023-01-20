@@ -1,0 +1,57 @@
+@import "/styles/_reset.css";
+@import "/styles/_variables.css";
+
+body {
+  background: #0c0c0c;
+
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+
+  color: #cccccc;
+
+  padding: 2px;
+  height: 400px;
+
+  scrollbar-color: #858585 #e4e4e4;
+  scrollbar-width: 12px;
+
+  height: 10000px;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #e4e4e4;
+  border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #858585;
+  border-radius: 20px;
+}
+
+body > *:not(:nth-child(1)) {
+  margin-top: 14px;
+}
+
+p {
+  max-width: 100%;
+}
+p,
+span {
+  outline: 0;
+}
+span {
+}
+.float {
+  float: left;
+}
+.write-text::before {
+  content: "";
+
+  background: #f3f3f3;
+  width: 3px;
+  height: 3px;
+}

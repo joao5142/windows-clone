@@ -1,27 +1,38 @@
+import WindowProcess from "/models/WindowProcess.js";
+
 class Icon extends HTMLElement {
   constructor() {
     super();
   }
   connectedCallback() {
-    let props = this.getAttributeNames().reduce(
-      (accumulator, attributeName) => {
-        return {
-          ...accumulator,
-          [attributeName]: this.getAttribute(attributeName),
-        };
-      },
-      {}
-    );
+    let props = this.getAttributeNames().reduce((accumulator, attributeName) => {
+      return {
+        ...accumulator,
+        [attributeName]: this.getAttribute(attributeName),
+      };
+    }, {});
 
     let element = this.createElement(props);
 
     this.appendChild(element);
   }
 
+  handleClick(element) {
+    element.addEventListener("click", () => {
+      let elements = document.querySelectorAll(".icon");
+      elements.forEach((icon) => {
+        icon.classList.remove("active");
+      });
+      element.classList.toggle("active");
+    });
+  }
+
   createElement(props) {
     let div = document.createElement("div");
     let p = document.createElement("p");
     let image = document.createElement("img");
+
+    console.log(props);
 
     div.setAttribute("draggable", "true");
     div.classList.add("icon");
@@ -40,17 +51,15 @@ class Icon extends HTMLElement {
     this.style.top = `${props.y}%`;
     this.style.left = `${props.x}%`;
 
+    if (props.page) {
+      this.addEventListener("dblclick", () =>
+        WindowProcess.createProcess(props.page, props.display, props.image, props.noresize)
+      );
+    }
+
     this.handleClick(div);
+
     return div;
-  }
-  handleClick(element) {
-    element.addEventListener("click", () => {
-      let elements = document.querySelectorAll(".icon");
-      elements.forEach((icon) => {
-        icon.classList.remove("active");
-      });
-      element.classList.toggle("active");
-    });
   }
 }
 customElements.define("icon-component", Icon);

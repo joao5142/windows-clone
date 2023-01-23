@@ -1,5 +1,6 @@
 import backgrounds from "./backgrounds.js";
 import taskbar from "./taskbar.js";
+import WindowProcess from "../models/WindowProcess.js";
 
 const body = document.body;
 const footer = document.querySelector(".footer");
@@ -91,6 +92,7 @@ function handleSelectionMove(e) {
 //init import's methods
 backgrounds.initTimeout();
 taskbar.getDate();
+WindowProcess.startProcessesListeners();
 
 container.addEventListener("click", handleClickContainer);
 footer.addEventListener("click", handleClickFooter);

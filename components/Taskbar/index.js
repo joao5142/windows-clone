@@ -1,15 +1,37 @@
+import WindowProcess from "/models/WindowProcess.js";
 class Taskbar extends HTMLElement {
   constructor() {
     super();
     this.liArray = null;
+    this.onElementCreated();
   }
 
+  onElementCreated() {
+    document.addEventListener("createprocess", (e) => {
+      let taskbar = this.querySelector("#taskbar");
+      let li = document.createElement("li");
+      li.tabIndex = "0";
+      li.className = "active opened";
+      li.innerHTML = `<img src="${e.data.image}"/>`;
+      li.dataset.processId = e.data.processId;
+
+      console.log(e.data);
+      li.onclick = function () {
+        console.log(this);
+        WindowProcess.toggleVisibleEvent.data = { processId: this.dataset.processId };
+        console.log(e.data);
+        document.dispatchEvent(WindowProcess.toggleVisibleEvent);
+      };
+
+      taskbar.appendChild(li);
+    });
+  }
   connectedCallback() {
     this.innerHTML = `
        
         <footer  class="footer">
           <nav class="footer__principal">
-            <ul>
+            <ul id="taskbar">
               <li class="no-effect" tabindex="0"> <img src="/assets/icons/logo-windows.svg"/></li>
               <li class="no-effect" tabindex="0"> <img src="/assets/icons/search.svg"/></li>
               <li tabindex="0"> <img src="/assets/icons/folder.svg"/></li>
@@ -41,9 +63,7 @@ class Taskbar extends HTMLElement {
         </footer>
      
     `;
-    this.liArray = this.querySelectorAll(
-      ".footer__principal li:not(.no-effect)"
-    );
+    this.liArray = this.querySelectorAll(".footer__principal li:not(.no-effect)");
     this.handleClickLi();
   }
   removeActiveClassToLiElement() {

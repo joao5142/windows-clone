@@ -9,8 +9,8 @@
     <link rel="shortcut icon" href="/assets/icons/logo-windows.svg" type="image/x-icon" />
 
     <link rel="stylesheet" href="styles/app.css" />
-    <script src="components/Taskbar/index.js" type="text/javascript" defer></script>
-    <script src="components/Icon/index.js" type="text/javascript" defer></script>
+    <script src="components/Taskbar/index.js" type="module" defer></script>
+    <script src="components/Icon/index.js" type="module" defer></script>
     <script src="components/ListMenu/index.js" type="text/javascript" defer></script>
   </head>
   <body>
@@ -20,20 +20,39 @@
         <icon-component text="New Folder" image="/assets/icons/folder.svg" x="50" y="60"></icon-component>
         <icon-component text="Visual Studio Code" image="/assets/icons/vs-code.svg" x="80" y="80"></icon-component>
 
-        <icon-component text="Chess" image="/assets/icons/chess.svg" x="70" y="20"></icon-component>
+        <icon-component text="Chess" image="/assets/icons/chess.svg" x="85" y="20"></icon-component>
 
         <icon-component text="Microsoft Edge" image="/assets/icons/edge.svg" x="20" y="90"></icon-component>
+
+        <icon-component
+          page="/pages/prompt/index.html"
+          display="sm"
+          text="Command Line"
+          image="/assets/icons/cmd.png"
+          x="20"
+          y="50"
+        ></icon-component>
+
+        <icon-component
+          page="/pages/lol/index.html"
+          display="md"
+          text="League of Legends"
+          image="/assets/icons/lol.svg"
+          x="40"
+          y="10"
+        ></icon-component>
+
+        <icon-component
+          page="/pages/calculator/index.html"
+          display="xs"
+          text="Calc"
+          noresize="true"
+          image="/assets/icons/calculadora.png"
+          x="65"
+          y="40"
+        ></icon-component>
       </div>
       <list-menu-component></list-menu-component>
-
-      <div tabindex="0" class="window window--sm window--round">
-        <div class="window__actions">
-          <img src="/assets/icons/minimize.png" alt="minimize" />
-          <img src="/assets/icons/square.png" alt="maximize" />
-          <img class="--close" src="/assets/icons/close.png" alt="close" />
-        </div>
-        <iframe class="window__iframe" src="/pages/prompt/index.html" frameborder="0" title="prompt"></iframe>
-      </div>
     </main>
 
     <taskbar-component></taskbar-component>

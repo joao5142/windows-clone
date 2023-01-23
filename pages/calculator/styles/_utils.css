@@ -1,0 +1,25 @@
+/* UTILS */
+.flex {
+  display: flex;
+
+  align-items: center;
+}
+.justify-space-between {
+  justify-content: space-between;
+}
+.gap-5 {
+  gap: 5px;
+}
+.gap-10 {
+  gap: 10px;
+}
+.gap-15 {
+  gap: 15px;
+}
+.gap-25 {
+  gap: 25px;
+}
+
+.text-light {
+  color: #adadad;
+}

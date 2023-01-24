@@ -147,6 +147,14 @@ input[type="checkbox"] {
   border-radius: 20px;
   border: 2px solid #e8e8e8;
 }
+.content__submit-button:active {
+  border: 0px solid #e8e8e8;
+  background: #eb4e41;
+}
+.content__submit-button:focus {
+  border: 2px solid #e8e8e8;
+}
+
 .content__footer {
   display: flex;
   flex-direction: column;

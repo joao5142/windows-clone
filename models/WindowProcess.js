@@ -13,7 +13,7 @@ export default class WindowProcess {
   static onMinimizeProcess() {
     document.addEventListener("minimizeprocess", (e) => {
       let element = e.data.element;
-      console.log("minimizeprocess");
+
       //  document.dispatchEvent(this.eventMinimize);
       element.style.visibility = "hidden";
     });
@@ -21,12 +21,10 @@ export default class WindowProcess {
 
   static onToggleVisible() {
     document.addEventListener("togglevisible", (e) => {
-      console.log(this.allProcess);
       let element = document.querySelector(`[data-process-id='${e.data.processId}']`);
-      console.log("togglevisible");
 
       this.allProcess.forEach((window) => (window.element.style.zIndex = 0));
-      // console.log(e.data, element);
+
       if (element.style.visibility == "hidden") {
         element.style.visibility = "visible";
         element.style.zIndex = 1;
@@ -38,8 +36,6 @@ export default class WindowProcess {
   static onMaximizeProcess() {
     document.addEventListener("maximizeprocess", (e) => {
       let element = e.data.element;
-      console.log("maximizeprocess");
-      console.log(e.data);
 
       element.classList.remove("transform-none");
 
@@ -66,7 +62,6 @@ export default class WindowProcess {
       elements.forEach((el) => {
         el.remove();
       });
-      console.log(this.allProcess);
       this.removeProcess(e.data.processId);
     });
   }
@@ -79,16 +74,16 @@ export default class WindowProcess {
   }
 
   static getClassWindowProcess(display) {
-    let windowClass;
+    let windowClass = "window--round ";
     switch (display) {
       case "xs":
-        windowClass = "window--xs window--round";
+        windowClass += "window--xs";
         break;
       case "sm":
-        windowClass = "window--sm window--round";
+        windowClass += "window--sm";
         break;
       case "md":
-        windowClass = "window--md window--round";
+        windowClass += "window--md";
         break;
       case "lg":
         windowClass = "window--lg";
@@ -97,7 +92,7 @@ export default class WindowProcess {
     return windowClass;
   }
 
-  static createWindowElement(iframeUrl, display, image, processId, noResizable) {
+  static createWindowElement(iframeUrl, display = "", image, processId, noResizable, width, height) {
     let windowClass = this.getClassWindowProcess(display);
 
     let div = document.createElement("div");
@@ -115,7 +110,6 @@ export default class WindowProcess {
       document.dispatchEvent(this.maximizeProcessEvent);
     });
     maximizeIcon.alt = "maximize";
-    console.log(noResizable);
     if (noResizable) {
       maximizeIcon.style.pointerEvents = "none";
       maximizeIcon.disabled = true;
@@ -148,6 +142,12 @@ export default class WindowProcess {
 
     div.className = `window ${windowClass}`;
     div.tabIndex = "0";
+
+    if (width && height) {
+      div.style.width = width || div.width;
+      div.style.height = height || div.height;
+    }
+
     div.dataset.processId = processObj.processId;
     div.append(divActions, iframe);
 
@@ -157,12 +157,12 @@ export default class WindowProcess {
 
     return processObj;
   }
-  static createProcess(iframeUrl, display, image, noResizable) {
+  static createProcess(iframeUrl, display, image, noResizable, width, height) {
     if (this.allProcess.find((process) => process.page == iframeUrl)) return;
 
     let processId = "process" + (this.allProcess.length + 1);
 
-    let processObj = this.createWindowElement(iframeUrl, display, image, processId, noResizable);
+    let processObj = this.createWindowElement(iframeUrl, display, image, processId, noResizable, width, height);
 
     this.createProcessEvent.data = processObj;
     document.dispatchEvent(this.createProcessEvent);

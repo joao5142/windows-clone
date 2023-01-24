@@ -32,8 +32,6 @@ class Icon extends HTMLElement {
     let p = document.createElement("p");
     let image = document.createElement("img");
 
-    console.log(props);
-
     div.setAttribute("draggable", "true");
     div.classList.add("icon");
 
@@ -53,7 +51,14 @@ class Icon extends HTMLElement {
 
     if (props.page) {
       this.addEventListener("dblclick", () =>
-        WindowProcess.createProcess(props.page, props.display, props.image, props.noresize)
+        WindowProcess.createProcess(
+          props.page,
+          props.display,
+          props.image,
+          props.noresize,
+          props.width || "",
+          props.height || ""
+        )
       );
     }
 

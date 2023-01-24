@@ -66,7 +66,7 @@ input[type="checkbox"] {
 }
 .content__input::placeholder {
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 0.73rem;
   color: #818181;
 }
 .content__socials {
@@ -189,9 +189,31 @@ input[type="checkbox"] {
     font-size: 1.3rem;
   }
   .content__input::placeholder {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
   .content__footer a {
     font-size: 0.85rem;
+  }
+}
+@media (max-width: 1100px) {
+  .content__form {
+    width: 50%;
+  }
+  .content__image {
+    width: 50%;
+    background-size: cover;
+    background-position-x: -150px;
+  }
+}
+
+@media (max-width: 600px) {
+  .content__form {
+    width: 100%;
+  }
+  .content__image {
+    display: none;
+  }
+  .content__footer a {
+    font-size: 0.9rem;
   }
 }

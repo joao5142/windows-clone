@@ -15,11 +15,9 @@ class Taskbar extends HTMLElement {
       li.innerHTML = `<img src="${e.data.image}"/>`;
       li.dataset.processId = e.data.processId;
 
-      console.log(e.data);
       li.onclick = function () {
-        console.log(this);
         WindowProcess.toggleVisibleEvent.data = { processId: this.dataset.processId };
-        console.log(e.data);
+
         document.dispatchEvent(WindowProcess.toggleVisibleEvent);
       };
 

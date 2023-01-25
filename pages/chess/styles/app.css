@@ -9,17 +9,15 @@ body {
   font-size: 0.74rem;
 
   height: 100vh;
+  background-image: url(../assets/images/board.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   overflow: hidden;
 }
 
 .chess {
-  height: 630px;
-  width: 650px;
-
-  background-image: url(../assets/images/board.jpg);
-  background-size: 650px 630px;
-  background-repeat: no-repeat;
-
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-columns: repeat(8, 1fr);
@@ -36,8 +34,10 @@ body {
   max-height: 100%;
 }
 .chess__piece {
-  width: 88%;
-  height: 88%;
+  max-width: 88%;
+  max-height: 88%;
+  min-width: 80%;
+  min-height: 80%;
   padding: 0px;
   margin: 0px;
 }

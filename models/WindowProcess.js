@@ -143,10 +143,10 @@ export default class WindowProcess {
     div.className = `window ${windowClass}`;
     div.tabIndex = "0";
 
-    if (width && height) {
-      div.style.width = width || div.width;
-      div.style.height = height || div.height;
-    }
+    // if (width && height) {
+    //   div.style.maxWidth = width || div.width;
+    //   div.style.maxHeight = height || div.height;
+    // }
 
     div.dataset.processId = processObj.processId;
     div.append(divActions, iframe);

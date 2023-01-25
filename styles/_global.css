@@ -57,6 +57,9 @@ main {
   transform: translate(-50%, -50%);
   z-index: 1000;
   overflow: hidden;
+
+  width: 650px;
+  height: 630px;
 }
 
 .window--xs {
@@ -155,10 +158,26 @@ main {
   .window--sm {
     width: 95%;
   }
+  .window {
+    max-width: 500px;
+    max-height: 500px;
+  }
 }
-
+@media (max-width: 450px) {
+  .window {
+    max-width: 300px;
+    max-height: 300px;
+  }
+}
 @media (max-width: 350px) {
   .window--xs {
     width: 95%;
+  }
+}
+
+@media (max-width: 300px) {
+  .window {
+    max-width: 250px;
+    max-height: 250px;
   }
 }

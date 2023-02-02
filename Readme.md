@@ -2,7 +2,7 @@
 <h4>🚀 Clone do Windows 11.</h4>
 
 <h2>🚧 Status do projeto</h2>
-<p>Concluído</p>
+<p>Em andamento</p>
 
 <h2>🖥️ Pré-requisitos e como rodar a aplicação/testes</h2>
 <p>Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:

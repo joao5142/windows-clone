@@ -60,6 +60,9 @@ class Icon extends HTMLElement {
           props.height || ""
         )
       );
+      this.style.cursor = "pointer";
+    } else {
+      this.style.cursor = "not-allowed";
     }
 
     this.handleClick(div);

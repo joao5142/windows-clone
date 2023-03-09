@@ -1,40 +1,41 @@
-const body = document.body;
-const main = document.querySelector("main");
 export default class Drag {
-  static isClicked = false;
-  static currentXPosition = 0;
-  static currentYPosition = 0;
+  constructor() {
+    this.isClicked = false;
+    this.currentXPosition = 0;
+    this.currentYPosition = 0;
+  }
 
-  static addDragEventToElement(element) {
-    let self = this;
-
-    element.addEventListener("mousedown", function (e) {
+  addDragEventToElement(element) {
+    element.addEventListener("mousedown", (e) => {
       e.preventDefault();
-      self.isClicked = true;
-      self.currentXPosition = e.offsetLeft;
-      self.currentYPosition = e.offsetTop;
+      if (e.target.nodeName != "IMG") {
+        this.isClicked = true;
+        this.currentXPosition = e.offsetLeft;
+        this.currentYPosition = e.offsetTop;
 
-      element.parentElement.style.opacity = 0.8;
+        element.parentElement.style.opacity = 0.8;
+      }
     });
 
-    document.addEventListener("mouseup", function (e) {
-      self.isClicked = false;
+    document.addEventListener("mouseup", (e) => {
+      this.isClicked = false;
 
       element.parentElement.style.opacity = 1;
     });
 
-    document.addEventListener("mousemove", function (e) {
-      self.handleSelectionMove(e, element.parentElement);
+    document.addEventListener("mousemove", (e) => {
+      this.handleSelectionMove(e, element.parentElement);
     });
   }
-  static removeDragEventToElement(element) {}
+  removeDragEventToElement(element) {}
 
-  static handleSelectionMove(event, element) {
+  handleSelectionMove(event, element) {
     let elementCordinates = element.getBoundingClientRect();
     let positionX = event.pageX;
     let positionY = event.pageY;
 
     if (this.isClicked) {
+      console.log(element);
       element.style.transform = "unset";
       element.style.left = `${positionX}px`;
       element.style.top = `${positionY}px`;
